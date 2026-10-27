@@ -9,15 +9,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body class="home">
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="index.html">kunika<i>.</i></a>
     <nav class="nav">
-      <a href="#path">Path</a>
-      <a href="#work">Work</a>
+      <a href="#work">My work</a>
       <a href="#services">Services</a>
       <a href="#offclock">Off the clock</a>
       <a href="#hi">Say hi</a>
@@ -55,10 +54,12 @@
     </div>
   </div>
 
-  <section id="path">
-    <div class="wrap narrow">
-      <p class="kicker">The path so far</p>
-      <h2>Where I've been</h2>
+  <section id="work">
+    <div class="wrap">
+      <p class="kicker">My work</p>
+      <div class="mywork">
+        <div class="col">
+          <h2>The path so far</h2>
       <div class="toggle" role="group" aria-label="Level of detail">
         <button type="button" id="t-simple" aria-pressed="true">Simple</button>
         <button type="button" id="t-detailed" aria-pressed="false">Detailed</button>
@@ -132,14 +133,10 @@
         </ol>
       </div>
       <a class="btn btn-line cv-btn" href="Kunika-Agarwal-CV.pdf" target="_blank" rel="noopener">View my full CV ↗</a>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="wrap">
-      <p class="kicker">Case studies</p>
-      <h2>Functions I've built</h2>
-      <div class="stories">
+        </div>
+        <div class="col">
+          <h2>Functions I've built</h2>
+          <div class="stories">
         <a class="story" href="digital-cs.html">
           <div class="story-top"><b>+50%</b><small>customers per CSM</small></div>
           <div class="story-body">
@@ -167,6 +164,8 @@
             <span class="go">Read the story <i>→</i></span>
           </div>
         </a>
+      </div>
+        </div>
       </div>
     </div>
   </section>
