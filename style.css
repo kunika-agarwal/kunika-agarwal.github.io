@@ -145,13 +145,13 @@ p { margin: 0 0 16px; }
 .cv-btn { margin-top: 26px; }
 
 /* Services: four light boxes that pop on hover */
-#services { background: var(--tint); margin-top: 72px; padding-block: 64px 64px; }
-.offers { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.offer .label { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; letter-spacing: -0.8px; color: var(--accent); margin-bottom: 6px; }
-.offer { display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; min-width: 0; cursor: default; }
+#services { padding-block: 88px 8px; }
+.offers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.offer .label { font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1.1; letter-spacing: -0.6px; color: var(--accent); margin-bottom: 4px; }
+.offer { display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 24px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; min-width: 0; cursor: default; }
 .offer::before { content: ""; position: absolute; inset: 0; background: var(--card-grad); opacity: 0; transition: opacity .3s; z-index: 0; }
 .offer > * { position: relative; z-index: 1; }
-.offer h3 { margin: 0; transition: color .2s; }
+.offer h3 { margin: 0; font-size: 18px; transition: color .2s; }
 .offer p { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.5; }
 .offer:hover, .offer:focus-visible { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 32px rgba(18,20,23,.08); }
 .offer:hover::before, .offer:focus-visible::before { opacity: 1; }
@@ -185,6 +185,7 @@ p { margin: 0 0 16px; }
 .pull { border-left: 6px solid var(--sun); padding: 6px 0 6px 22px; margin: 8px 0 18px; font-size: 19px; }
 .back { display: inline-block; margin-top: 48px; font-weight: 700; text-decoration: none; }
 
+@media (max-width: 1080px) { .offers { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) {
   .stories { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 32px; }
