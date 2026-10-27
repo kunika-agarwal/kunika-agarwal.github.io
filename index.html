@@ -166,38 +166,30 @@
   <section id="services">
     <div class="wrap">
       <p class="kicker">Work with me</p>
-      <h2>Ways I can help your team</h2>
+      <h2>Where I can help</h2>
       <div class="offers">
         <a class="offer" href="#hi">
-          <span class="tag">Scale</span>
-          <div>
-            <h3>Grow a scaled or digital CS motion</h3>
-            <p>For when you have thousands of customers and a handful of CSMs, so everyone gets looked after, not just the biggest accounts.</p>
-          </div>
+          <span class="label">Scale</span>
+          <h3>Scale CS to thousands of customers</h3>
+          <p>For when you have thousands of customers and a handful of CSMs, so everyone gets looked after, not just the biggest accounts.</p>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="offer" href="#hi">
-          <span class="tag">Fractional</span>
-          <div>
-            <h3>A CS lead for a few months</h3>
-            <p>I run the post-sales motion with your team, fix what's stuck and leave a setup that keeps running after I step back.</p>
-          </div>
+          <span class="label">Fractional</span>
+          <h3>Lead your CS team, part-time</h3>
+          <p>I run the post-sales motion with your team, fix what's stuck and leave a setup that keeps running after I step back.</p>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="offer" href="#hi">
-          <span class="tag">Grow</span>
-          <div>
-            <h3>Structure for a team that grew on its own</h3>
-            <p>Clear roles, coaching and a path from associate to strategic work, so people grow instead of burning out on volume.</p>
-          </div>
+          <span class="label">Grow</span>
+          <h3>Give a fast-growing team real structure</h3>
+          <p>Clear roles, coaching and a path from associate to strategic work, so people grow instead of burning out on volume.</p>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
         <a class="offer" href="#hi">
-          <span class="tag">AI + CS</span>
-          <div>
-            <h3>AI where it actually helps your team</h3>
-            <p>Customer data, guardrails and testing by hand first, so AI makes your people faster without making customers nervous.</p>
-          </div>
+          <span class="label">AI+</span>
+          <h3>Build an AI-enabled CS team</h3>
+          <p>Customer data, guardrails and testing by hand first, so AI makes your people faster without making customers nervous.</p>
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -228,7 +220,6 @@
       <p class="kicker">Say hi</p>
       <h2>Always open to a chat.</h2>
       <p>Whether it's scaled CS, a team you're building, a role you think I'd love, or a board game I haven't played yet, I'd like to hear about it.</p>
-      <p class="addr">kunika3003.ka@gmail.com</p>
       <div class="actions">
         <a class="btn btn-solid" href="mailto:kunika3003.ka@gmail.com">Email me</a>
         <a class="btn btn-line" href="https://www.linkedin.com/in/kunika-agarwal" target="_blank" rel="noopener">LinkedIn</a>
@@ -257,6 +248,19 @@
     }
     s.addEventListener('click', function () { set(false); });
     d.addEventListener('click', function () { set(true); });
+  })();
+</script>
+<script>
+  // Keep the intro pinned only as far as it fits, so nothing in it is ever hidden.
+  (function () {
+    var band = document.querySelector('.hero-band');
+    if (!band) return;
+    function fit() {
+      band.style.top = '';
+      if (getComputedStyle(band).position !== 'sticky') return;
+      band.style.top = Math.min(0, window.innerHeight - band.offsetHeight) + 'px';
+    }
+    fit(); window.addEventListener('resize', fit);
   })();
 </script>
 </body>
