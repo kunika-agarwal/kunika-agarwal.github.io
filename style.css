@@ -43,7 +43,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px s
 img { max-width: 100%; display: block; }
 
 .wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-.narrow { max-width: 760px; }
+.narrow > * { max-width: 760px; }
 
 /* Header */
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
@@ -101,11 +101,11 @@ p { margin: 0 0 16px; }
 .tag { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
 
 /* Case studies: two story cards, the headline result up top */
-.stories { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.stories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .story { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--bg); transition: transform .25s, box-shadow .25s; min-width: 0; }
 .story-top { background: var(--card-grad); padding: 30px 28px 26px; }
 .story-top.alt { background: var(--card-grad-2); }
-.story-top b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(48px, 7vw, 72px); line-height: .95; letter-spacing: -2px; color: var(--accent); transition: transform .3s; transform-origin: left bottom; }
+.story-top b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(44px, 5vw, 60px); line-height: .95; letter-spacing: -2px; color: var(--accent); transition: transform .3s; transform-origin: left bottom; }
 .story-top small { font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .story-body { padding: 24px 28px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .story-body h3 { margin: 0; }
@@ -147,16 +147,17 @@ p { margin: 0 0 16px; }
 #services { background: var(--tint); margin-top: 72px; padding-block: 64px 64px; }
 .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .offer .label { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; letter-spacing: -1px; color: var(--accent); margin-bottom: 6px; }
-.offer { display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); text-decoration: none; color: var(--ink); position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; min-width: 0; }
+.offer { display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; min-width: 0; cursor: default; }
 .offer::before { content: ""; position: absolute; inset: 0; background: var(--card-grad); opacity: 0; transition: opacity .3s; z-index: 0; }
 .offer > * { position: relative; z-index: 1; }
 .offer h3 { margin: 0; transition: color .2s; }
 .offer p { color: var(--muted); margin: 0; font-size: 16px; }
-.offer .arrow { position: absolute; right: 22px; top: 20px; font-size: 22px; color: var(--muted); transition: transform .25s, color .25s; }
-.offer:hover, .offer:focus-visible { transform: translateY(-5px) rotate(-0.3deg); border-color: var(--accent); box-shadow: 0 16px 32px rgba(22,39,29,.10); }
+.offer:hover, .offer:focus-visible { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 32px rgba(18,20,23,.08); }
 .offer:hover::before, .offer:focus-visible::before { opacity: 1; }
-.offer:hover h3 { color: var(--accent); }
-.offer:hover .arrow { transform: translate(4px, -4px) rotate(-30deg); color: var(--accent); }
+.offer h3 em { font-style: normal; background: linear-gradient(var(--sun), var(--sun)) no-repeat 0 88% / 0% 38%; transition: background-size .35s ease; }
+.offer:hover h3 em, .offer:focus-visible h3 em { background-size: 100% 38%; }
+.offer .label { transition: transform .25s; transform-origin: left center; }
+.offer:hover .label { transform: scale(1.08); }
 
 /* Contact */
 .contact { padding-block: 80px 40px; }
@@ -184,6 +185,7 @@ p { margin: 0 0 16px; }
 .back { display: inline-block; margin-top: 48px; font-weight: 700; text-decoration: none; }
 
 @media (max-width: 860px) {
+  .stories { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 32px; }
   .portrait { justify-self: start; order: -1; width: 120px; height: 120px; }
   .portrait img { width: 120px; height: 120px; box-shadow: 8px 8px 0 var(--accent); }
