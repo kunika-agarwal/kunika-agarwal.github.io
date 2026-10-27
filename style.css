@@ -9,7 +9,7 @@
   --sun: #ffb000;
   --lavender: #b6b6ff;
   --lavender-soft: #f2f2f6;
-  --hero-grad: #ffffff;
+  --hero-grad: radial-gradient(circle at 82% 38%, #f8f0c6 0, transparent 34%), radial-gradient(circle at 68% 78%, #e3efd8 0, transparent 30%), #ffffff;
   --tint: #f3f1ff;
   --sun-ink: #8a5a00;
   --card-grad: #eef0ff;
@@ -24,13 +24,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0f1012; --ink: #f2f2f4; --muted: #a2a6ae; --line: #26282d; --accent: #8f8fff; --on-accent: #0f1012;
-    --lavender: #4a4aa8; --lavender-soft: #1b1c21; --hero-grad: #0f1012; --tint: #17172a; --sun-ink: #ffcf66; --card-grad: #1c1d33; --card-grad-2: #2a2412;
+    --lavender: #4a4aa8; --lavender-soft: #1b1c21; --hero-grad: radial-gradient(circle at 82% 38%, #2e2a14 0, transparent 34%), radial-gradient(circle at 68% 78%, #18261a 0, transparent 30%), #0f1012; --tint: #17172a; --sun-ink: #ffcf66; --card-grad: #1c1d33; --card-grad-2: #2a2412;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f1012; --ink: #f2f2f4; --muted: #a2a6ae; --line: #26282d; --accent: #8f8fff; --on-accent: #0f1012;
-  --lavender: #4a4aa8; --lavender-soft: #1b1c21; --hero-grad: #0f1012; --tint: #17172a; --sun-ink: #ffcf66; --card-grad: #1c1d33; --card-grad-2: #2a2412;
+  --lavender: #4a4aa8; --lavender-soft: #1b1c21; --hero-grad: radial-gradient(circle at 82% 38%, #2e2a14 0, transparent 34%), radial-gradient(circle at 68% 78%, #18261a 0, transparent 30%), #0f1012; --tint: #17172a; --sun-ink: #ffcf66; --card-grad: #1c1d33; --card-grad-2: #2a2412;
   color-scheme: dark;
 }
 
@@ -59,8 +59,9 @@ img { max-width: 100%; display: block; }
 .hero > * { min-width: 0; }
 .portrait { justify-self: end; position: relative; width: 180px; height: 180px; margin: 0 12px 12px 0; }
 .portrait img, .note { z-index: 1; }
-.portrait img { position: relative; display: block; width: 180px; height: 180px; max-width: none; object-fit: cover; object-position: 50% 30%; border-radius: 20px; box-shadow: 12px 12px 0 var(--accent); }
-.portrait::after { content: ""; position: absolute; width: 40px; height: 40px; border-radius: 50%; background: var(--sun); top: -12px; left: -12px; z-index: 2; }
+.portrait img { position: relative; display: block; width: 180px; height: 180px; max-width: none; object-fit: cover; object-position: 50% 30%; border-radius: 24px; border: 6px solid #f6ecb4; box-shadow: 0 18px 40px rgba(120, 110, 40, .18); }
+.portrait::before { content: ""; position: absolute; inset: -40px; background: url(kunika.jpg) center 30% / cover; filter: blur(42px) saturate(1.6); opacity: .55; border-radius: 50%; z-index: 0; }
+.portrait::after { content: ""; position: absolute; width: 36px; height: 36px; border-radius: 50%; background: #b9d8a8; top: -10px; left: -10px; z-index: 2; }
 .note { position: absolute; z-index: 3; right: -24px; bottom: -64px; width: 190px; transform: rotate(-3deg); background: var(--sun); color: #16271d; padding: 10px 14px; border-radius: 4px 4px 4px 14px; font-size: 13.5px; line-height: 1.4; font-weight: 600; box-shadow: 0 8px 20px rgba(18,20,23,.14); }
 .note b { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 2px; }
 .eyebrow { font-family: var(--mono); font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
@@ -188,7 +189,7 @@ p { margin: 0 0 16px; }
   .stories { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 32px; }
   .portrait { justify-self: start; order: -1; width: 120px; height: 120px; }
-  .portrait img { width: 120px; height: 120px; box-shadow: 8px 8px 0 var(--accent); }
+  .portrait img { width: 120px; height: 120px; }
   .note { left: 150px; right: auto; bottom: 10px; width: 180px; }
 }
 @media (max-width: 640px) {
