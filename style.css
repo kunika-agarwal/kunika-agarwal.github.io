@@ -95,8 +95,8 @@ h1 .hl { color: var(--accent); background: linear-gradient(transparent 70%, colo
 section { padding-block: 72px 8px; }
 .kicker { font-family: var(--mono); font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; display: flex; gap: 10px; align-items: center; }
 .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-h2 { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 4.4vw, 44px); line-height: 1.08; letter-spacing: -1px; margin: 0 0 26px; text-wrap: balance; }
-h3 { font-family: var(--display); font-weight: 700; font-size: 23px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; text-wrap: balance; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.15; letter-spacing: -0.4px; margin: 0 0 20px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 700; font-size: 20px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.4px; text-wrap: balance; }
 p { margin: 0 0 16px; }
 .muted { color: var(--muted); }
 .tag { font-family: var(--mono); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
@@ -147,12 +147,12 @@ p { margin: 0 0 16px; }
 /* Services: four light boxes that pop on hover */
 #services { background: var(--tint); margin-top: 72px; padding-block: 64px 64px; }
 .offers { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.offer .label { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; letter-spacing: -1px; color: var(--accent); margin-bottom: 6px; }
+.offer .label { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1; letter-spacing: -0.8px; color: var(--accent); margin-bottom: 6px; }
 .offer { display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; border-radius: 20px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; min-width: 0; cursor: default; }
 .offer::before { content: ""; position: absolute; inset: 0; background: var(--card-grad); opacity: 0; transition: opacity .3s; z-index: 0; }
 .offer > * { position: relative; z-index: 1; }
 .offer h3 { margin: 0; transition: color .2s; }
-.offer p { color: var(--muted); margin: 0; font-size: 16px; }
+.offer p { color: var(--muted); margin: 0; font-size: 15px; line-height: 1.5; }
 .offer:hover, .offer:focus-visible { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 16px 32px rgba(18,20,23,.08); }
 .offer:hover::before, .offer:focus-visible::before { opacity: 1; }
 .offer h3 em { font-style: normal; background: linear-gradient(var(--sun), var(--sun)) no-repeat 0 88% / 0% 38%; transition: background-size .35s ease; }
@@ -162,7 +162,7 @@ p { margin: 0 0 16px; }
 
 /* Contact */
 .contact { padding-block: 80px 40px; }
-.contact h2 { font-size: clamp(34px, 5.6vw, 58px); }
+.contact h2 { font-size: 26px; }
 .contact .addr { font-family: var(--mono); font-size: 16px; user-select: all; }
 .museum-door { display: grid; gap: 4px; margin-top: 56px; padding: 26px 28px; border-radius: 22px; background: var(--forest); color: #f1ecfa; text-decoration: none; transition: transform .2s; }
 .museum-door .tag { color: var(--lavender); }
@@ -181,7 +181,7 @@ p { margin: 0 0 16px; }
 .fact b { font-family: var(--display); font-size: 32px; line-height: 1.1; display: block; letter-spacing: -1px; }
 .fact span { font-size: 15px; color: var(--muted); display: block; margin-top: 4px; line-height: 1.4; }
 .cs section { padding-block: 40px 0; }
-.cs h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 14px; }
+.cs h2 { font-size: 22px; margin-bottom: 12px; }
 .pull { border-left: 6px solid var(--sun); padding: 6px 0 6px 22px; margin: 8px 0 18px; font-size: 19px; }
 .back { display: inline-block; margin-top: 48px; font-weight: 700; text-decoration: none; }
 
@@ -206,8 +206,8 @@ p { margin: 0 0 16px; }
 }
 
 /* Off the clock */
-.this-that { font-size: 19px; max-width: 36em; }
-.lr-title { margin-top: 30px; font-size: 20px; }
+.this-that { font-size: 17px; max-width: 40em; }
+.lr-title { margin-top: 28px; font-size: 18px; }
 .lightning { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 32px; margin: 10px 0 0; }
 .lightning div { display: flex; justify-content: space-between; gap: 16px; padding-block: 12px; border-bottom: 1px dashed var(--line); min-width: 0; transition: padding .2s; }
 .lightning div:hover { padding-left: 6px; }
@@ -219,7 +219,7 @@ p { margin: 0 0 16px; }
 /* My work: big numbers lead on the left; a quiet path on the right */
 .mywork { display: grid; grid-template-columns: 1fr 300px; gap: 96px; align-items: stretch; }
 .mywork > .col { min-width: 0; display: flex; flex-direction: column; }
-.mywork h2 { font-size: 22px; letter-spacing: -0.3px; margin-bottom: 18px; }
+.mywork h2 { margin-bottom: 18px; }
 .col-path h2 { color: var(--muted); }
 .mywork .stories { display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .mywork .story { flex: 1; flex-direction: row; align-items: stretch; position: relative; border-radius: 18px; }
