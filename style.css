@@ -291,3 +291,40 @@ p { margin: 0 0 16px; }
 .co-link { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none; font-weight: 500; }
 .co-link img { width: 18px; height: 18px; border-radius: 4px; background: #fff; box-shadow: 0 0 0 1px var(--line); }
 .co-link:hover { color: var(--accent); text-decoration: underline; }
+
+/* Where I can help: radial selector inside the dark panel */
+.help-grid { display: grid; grid-template-columns: 1fr 600px; gap: 32px; align-items: center; }
+.help-grid > * { min-width: 0; }
+.help-intro h2 { font-size: 40px; line-height: 1.05; letter-spacing: -1px; margin-bottom: 16px; }
+.help-sub { color: #b3b8c1; font-size: 17px; max-width: 26em; }
+.radial { position: relative; width: 600px; height: 560px; max-width: 100%; margin: 0 auto; }
+.ring { position: absolute; left: 50%; top: 50%; width: 460px; height: 460px; margin: -230px 0 0 -230px; border-radius: 50%; border: 2px dashed rgba(255,255,255,.18); animation: spin 60s linear infinite; }
+.ring::after { content: ""; position: absolute; inset: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.08); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.hub { position: absolute; left: 50%; top: 50%; width: 290px; height: 290px; margin: -145px 0 0 -145px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #2a2bd0, #1a1b6e 70%); box-shadow: 0 0 0 10px rgba(52,52,232,.15), 0 30px 60px rgba(0,0,0,.45); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px 32px; gap: 7px; }
+.hub-label { font-family: var(--mono); font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sun); }
+.hub-title { color: #fff; font-size: 19px; line-height: 1.2; margin: 0; }
+.hub-text { color: #d9dbff; font-size: 14px; line-height: 1.5; margin: 0; }
+.hub.swap > * { animation: hubIn .45s ease both; }
+@keyframes hubIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.node { position: absolute; display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: #1d2027; color: #f2f2f4; font: 700 16px var(--display); letter-spacing: -.2px; cursor: pointer; transition: transform .25s, background .25s, color .25s, border-color .25s, box-shadow .25s; white-space: nowrap; }
+.node i { width: 10px; height: 10px; border-radius: 50%; background: #a7a7ff; transition: background .25s, transform .25s; }
+.node:nth-of-type(even) i { background: var(--sun); }
+.node.n1 { top: 50px; left: 50%; transform: translate(-50%, -50%); }
+.node.n2 { left: 530px; top: 50%; transform: translate(-50%, -50%); }
+.node.n3 { top: 510px; left: 50%; transform: translate(-50%, -50%); }
+.node.n4 { left: 70px; top: 50%; transform: translate(-50%, -50%); }
+.node:hover, .node.is-active { background: var(--sun); color: #14161b; border-color: var(--sun); box-shadow: 0 10px 30px rgba(255,176,0,.35); }
+.node.is-active i, .node:hover i { background: #14161b; transform: scale(1.2); }
+.node.is-active { transform: translate(-50%, -50%) scale(1.08); }
+@media (max-width: 1100px) {
+  .help-grid { grid-template-columns: 1fr; }
+  .help-intro { text-align: left; }
+}
+@media (max-width: 620px) {
+  .radial { width: 100%; height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ring { display: none; }
+  .hub { position: relative; inset: auto; left: auto; top: auto; width: auto; height: auto; margin: 6px 0 0; grid-column: 1 / -1; order: 2; border-radius: 24px; padding: 26px 22px; margin-top: 6px; min-height: 210px; }
+  .node, .node.n1, .node.n2, .node.n3, .node.n4 { position: relative; inset: auto; left: auto; top: auto; transform: none !important; justify-content: center; white-space: normal; font-size: 15px; padding: 12px 14px; }
+  .help-intro h2 { font-size: 30px; }
+}

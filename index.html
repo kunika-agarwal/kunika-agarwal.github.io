@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=17">
+<link rel="stylesheet" href="style.css?v=18">
 </head>
 <body class="home">
 <header class="site-header">
@@ -176,28 +176,23 @@
   <section id="services">
     <div class="wrap">
       <div class="panel">
-      <p class="kicker">Work with me</p>
-      <h2>Where I can help</h2>
-      <div class="offers">
-        <div class="offer" tabindex="0">
-          <span class="label">Digital CS</span>
-          <h3>Build a post-sales function <em>to scale</em></h3>
-          <p>For when you have thousands of customers and a handful of CSMs, so everyone gets looked after, not just the biggest accounts.</p>
+      <div class="help-grid">
+        <div class="help-intro">
+          <p class="kicker">Work with me</p>
+          <h2>Where I can help</h2>
+          <p class="help-sub">Four ways I work with SaaS teams. Hover or tap around the circle to see what each one looks like.</p>
         </div>
-        <div class="offer" tabindex="0">
-          <span class="label">Fractional CS</span>
-          <h3>Lead your CS team, <em>part-time</em></h3>
-          <p>I run the post-sales motion with your team, fix what's stuck and leave a setup that keeps running after I step back.</p>
-        </div>
-        <div class="offer" tabindex="0">
-          <span class="label">Team Design</span>
-          <h3>Give a fast-growing team <em>real structure</em></h3>
-          <p>Clear roles, coaching and a path from associate to strategic work, so people grow instead of burning out on volume.</p>
-        </div>
-        <div class="offer" tabindex="0">
-          <span class="label">AI+ CS</span>
-          <h3>Know what to fix <em>before you automate</em></h3>
-          <p>Customer data, guardrails and manual testing first, so AI makes your people faster without making customers nervous.</p>
+        <div class="radial" id="radial">
+          <div class="ring" aria-hidden="true"></div>
+          <div class="hub" aria-live="polite">
+            <span class="hub-label" id="hub-label">Digital CS</span>
+            <h3 class="hub-title" id="hub-title">Build a post-sales function to scale</h3>
+            <p class="hub-text" id="hub-text">For when you have thousands of customers and a handful of CSMs, so everyone gets looked after, not just the biggest accounts.</p>
+          </div>
+          <button type="button" class="node n1 is-active" data-i="0"><i></i>Digital CS</button>
+          <button type="button" class="node n2" data-i="1"><i></i>Fractional CS</button>
+          <button type="button" class="node n3" data-i="2"><i></i>Team Design</button>
+          <button type="button" class="node n4" data-i="3"><i></i>AI+ CS</button>
         </div>
       </div>
         <div class="panel-cta">
@@ -254,6 +249,40 @@
       band.style.top = Math.min(0, window.innerHeight - band.offsetHeight) + 'px';
     }
     fit(); window.addEventListener('resize', fit);
+  })();
+</script>
+<script>
+  // Radial services: hover, focus or tap a node to fill the hub; gently cycles until someone interacts.
+  (function () {
+    var data = [
+      ['Digital CS', 'Build a post-sales function to scale', 'For when you have thousands of customers and a handful of CSMs, so everyone gets looked after, not just the biggest accounts.'],
+      ['Fractional CS', 'Lead your CS team, part-time', "I run the post-sales motion with your team, fix what's stuck and leave a setup that keeps running after I step back."],
+      ['Team Design', 'Give a fast-growing team real structure', 'Clear roles, coaching and a path from associate to strategic work, so people grow instead of burning out on volume.'],
+      ['AI+ CS', 'Know what to fix before you automate', 'Customer data, guardrails and manual testing first, so AI makes your people faster without making customers nervous.']
+    ];
+    var root = document.getElementById('radial'); if (!root) return;
+    var nodes = root.querySelectorAll('.node');
+    var L = document.getElementById('hub-label'), T = document.getElementById('hub-title'), X = document.getElementById('hub-text');
+    var hub = root.querySelector('.hub'), cur = 0, timer = null;
+    function show(i) {
+      if (i === cur && root.dataset.ready) return;
+      cur = i; root.dataset.ready = '1'; root.dataset.active = i;
+      nodes.forEach(function (n, k) { n.classList.toggle('is-active', k === i); });
+      hub.classList.remove('swap'); void hub.offsetWidth; hub.classList.add('swap');
+      L.textContent = data[i][0]; T.textContent = data[i][1]; X.textContent = data[i][2];
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    nodes.forEach(function (n) {
+      var i = +n.dataset.i;
+      n.addEventListener('mouseenter', function () { stop(); show(i); });
+      n.addEventListener('focus', function () { stop(); show(i); });
+      n.addEventListener('click', function () { stop(); show(i); });
+    });
+    root.dataset.active = 0;
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = setInterval(function () { show((cur + 1) % data.length); }, 3200);
+      root.addEventListener('mouseenter', stop);
+    }
   })();
 </script>
 </body>
