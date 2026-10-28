@@ -297,14 +297,16 @@ p { margin: 0 0 16px; }
 .big { border-bottom: 2px solid var(--ink); padding: 20px 0; outline: none; transition: opacity .3s; }
 .bigs:hover .big:not(:hover):not(:focus-within) { opacity: .28; }
 .big-name { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
-.big-name b { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 5.6vw, 66px); line-height: 1.02; letter-spacing: -2px; transition: color .25s, transform .35s; min-width: 0; }
+.big-name b { overflow-wrap: anywhere; }
+.big-name b { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 5vw, 60px); line-height: 1.05; letter-spacing: -1.6px; transition: color .25s, transform .35s; min-width: 0; }
 .big-name span { font-family: var(--mono); font-size: 13px; color: var(--muted); white-space: nowrap; flex: none; }
-.big:hover .big-name b, .big:focus-within .big-name b, .big:focus .big-name b { color: var(--accent); transform: translateX(10px); }
+.big:hover .big-name b, .big:focus-within .big-name b, .big:focus .big-name b { color: var(--accent); }
 .big:hover .big-name span, .big:focus .big-name span { color: var(--accent); }
 .big-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
-.big-more > div { overflow: hidden; display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; }
+.big-more > div { overflow: hidden; }
+.big-tag { font-family: var(--mono); font-size: 14px; color: var(--ink); line-height: 1.6; margin: 10px 0 0; }
 .big:hover .big-more, .big:focus .big-more, .big:focus-within .big-more { grid-template-rows: 1fr; }
-.big-more p { margin: 16px 0 4px; color: var(--muted); font-size: 17px; }
+.big-more p { margin: 8px 0 2px; color: var(--muted); font-size: 17px; max-width: 46em; }
 .big-more .big-for { font-family: var(--mono); font-size: 13.5px; color: var(--ink); line-height: 1.6; }
 .help-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
 .help-cta p { margin: 0; font-size: 18px; max-width: 34em; }
