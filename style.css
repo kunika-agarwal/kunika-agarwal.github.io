@@ -315,3 +315,12 @@ p { margin: 0 0 16px; }
   .big-more > div { grid-template-columns: 1fr; gap: 0; }
   .big-more p { margin: 8px 0 0; font-size: 15.5px; }
 }
+
+/* My work opener: the strip as one sentence, each phrase reveals its proof */
+.story-line { font-family: var(--display); font-variation-settings: "SOFT" 0, "WONK" 1; font-weight: 700; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.35; letter-spacing: -.6px; max-width: 28ch; margin: 4px 0 56px; color: var(--ink); text-wrap: pretty; }
+.chip { position: relative; display: inline-block; color: var(--accent); border-bottom: 3px dashed currentColor; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Ccircle cx='11' cy='11' r='9' fill='%23a9d77a' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 11 11, pointer; outline: none; }
+.chip.c2 { color: var(--sun-ink); } .chip.c3 { color: #4f8a35; }
+.chip .tip { position: absolute; left: 0; top: calc(100% + 10px); width: 280px; background: var(--ink); color: var(--bg); font: 500 14px/1.5 var(--body); letter-spacing: 0; padding: 12px 14px; border-radius: 12px; opacity: 0; transform: translateY(-4px); pointer-events: none; transition: opacity .2s, transform .2s; z-index: 5; }
+.chip:hover .tip, .chip:focus .tip { opacity: 1; transform: none; }
+.chip:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+@media (max-width: 640px) { .chip .tip { width: 220px; } .story-line { margin-bottom: 40px; } }
