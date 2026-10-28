@@ -231,5 +231,23 @@
     fit(); window.addEventListener('resize', fit);
   })();
 </script>
+<script>
+  // Count up the function numbers when they scroll into view; final values stay in the HTML.
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    function run(el) {
+      var m = el.textContent.trim().match(/^([^0-9]*)([0-9][0-9,]*)(.*)$/); if (!m) return;
+      var pre = m[1], to = +m[2].replace(/,/g, ''), suf = m[3], comma = m[2].indexOf(',') > -1, t0 = null;
+      function fmt(n) { return comma ? n.toLocaleString('en-US') : String(n); }
+      function step(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / 1200), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = pre + fmt(Math.round(to * e)) + suf; if (k < 1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('.story-top b').forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
